@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SaveImage.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Visual="Default"
+             BackgroundColor="White"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    
+    <RefreshView BackgroundColor="White" x:Name="UpdateView" Refreshing="UpdateView_Refreshing">
+        <ScrollView>
+            <StackLayout Padding="30" Spacing="30">
+            <StackLayout>
+                <Entry x:Name="Name" 
+               Placeholder="Введите название" 
+               Visual="Material"
+               BackgroundColor="#e8e8e8"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand" Orientation="Horizontal">
+
+                <Button x:Name="TakePhoto" 
+                    Text="Камера" 
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="TakePhoto_Clicked"
+                    CornerRadius="200"
+                    BackgroundColor="#00b2ff"
+                    TextColor="White"/>
+
+                <Button x:Name="PhotoGetAsync"
+                    Text="Галерея" 
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="PhotoGetAsync_Clicked"
+                    CornerRadius="200"
+                    BackgroundColor="#00b2ff"
+                    TextColor="White"/>
+
+            </StackLayout>
+
+                <StackLayout>
+                    <Button Text="Добавить"
+             x:Name="AddImage"
+             Clicked="AddImage_Clicked"
+             CornerRadius="200"
+             BackgroundColor="#00b2ff"
+              TextColor="White"/>
+                </StackLayout>
+                
+                <ListView
+            x:Name="LVProject"
+            HasUnevenRows="True"
+           ItemSelected="LVProject_ItemSelected" CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <SwipeView BackgroundColor="White">
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Delete"
+                                     BackgroundColor="LightPink"
+                                                       Invoked="SwipeItem_Invoked"
+                                                       Clicked="SwipeItem_Clicked"/>
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}" TextColor="Black" FontSize="19" />
+                                        <Image Source="{Binding Puth}" HeightRequest="160" x:Name="Imageq" HorizontalOptions="CenterAndExpand"/>
+                                        
+                                    </StackLayout>
+
+                                </SwipeView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+                
+
+            </StackLayout>
+        </ScrollView>
+    </RefreshView>
+    
+</ContentPage>

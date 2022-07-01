@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SaveImage.Page.SelectedPage"
+             xmlns:local="clr-namespace:SaveImage"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Padding="30" Spacing="30">
+            <Entry Text="{Binding Name}"
+               Visual="Material"
+               BackgroundColor="#e8e8e8"
+               IsReadOnly="True"
+               Placeholder="Название"/>
+            
+            <local:PinchToZoomContainer>
+                <local:PinchToZoomContainer.Content>
+                    <Image Source="{Binding Puth}" 
+                   WidthRequest="700"
+                   HeightRequest="400"
+                   Visual="Material"/>
+                </local:PinchToZoomContainer.Content>
+            </local:PinchToZoomContainer>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
